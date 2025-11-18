@@ -1,4 +1,30 @@
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    const scrollThreshold = 80; // píxeles de scroll antes de encoger
+
+    function onScroll() {
+      if (window.scrollY > scrollThreshold) {
+        if (!header.classList.contains("header--scrolled")) {
+          header.classList.add("header--scrolled");
+        }
+      } else {
+        if (header.classList.contains("header--scrolled")) {
+          header.classList.remove("header--scrolled");
+        }
+      }
+    }
+
+    // Ejecutar una vez al cargar (por si recargas ya scrolleado)
+    onScroll();
+
+    // Escuchar el scroll
+    window.addEventListener("scroll", onScroll);
+  });
+
+
   // Colores oscuros que ya estabas usando
   const colors = [
     [200, 70, 25],   // naranja oscuro

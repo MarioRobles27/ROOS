@@ -192,10 +192,15 @@ header {
   background: rgba(246, 243, 239, 0.9);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--color-border-soft);
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
 .header-inner {
-  padding: 1rem 0;
+  padding: 1rem 0;              /* altura normal */
+  transition: padding 0.25s ease;
 }
 
 .logo {
@@ -208,12 +213,35 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  transition: font-size 0.25s ease;
 }
 
 .logo img {
-  height: 26px; /* ajusta según cómo quede tu logo */
+  height: 26px;                 /* tamaño normal del logo */
   display: block;
+  transition: height 0.25s ease, transform 0.25s ease;
 }
+
+/* === HEADER REDUCIDO AL HACER SCROLL === */
+
+header.header--scrolled {
+  background: rgba(246, 243, 239, 0.96);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+header.header--scrolled .header-inner {
+  padding: 0.45rem 0;           /* menos alto */
+}
+
+header.header--scrolled .logo {
+  font-size: 0.78rem;
+}
+
+header.header--scrolled .logo img {
+  height: 20px;
+  transform: translateY(1px);
+}
+
 
 nav ul {
   list-style: none;
