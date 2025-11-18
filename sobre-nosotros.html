@@ -137,16 +137,82 @@
     </section>
   </main>
 
-  <footer class="py-3">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
-      <p>© Imprenta X · Ciudad · España</p>
-      <nav class="d-flex gap-3 flex-wrap">
-        <a href="#">Aviso legal</a>
-        <a href="#">Política de privacidad</a>
-        <a href="#">Política de cookies</a>
-      </nav>
+  <footer class="site-footer gradient-animated">
+  <div class="container py-4 py-lg-5">
+    <div class="row gy-4 align-items-start">
+      <!-- Logo + descripción -->
+      <div class="col-12 col-lg-4">
+        <a href="index.html" class="footer-logo d-inline-flex align-items-center mb-3">
+          <!-- Cambia la ruta del logo -->
+          <img src="img/logo-roos-blanco.svg" alt="ROOS imprenta" />
+        </a>
+        <p class="footer-desc">
+          Imprenta digital y offset para pequeñas y medianas empresas.
+          Asesoría cercana, plazos claros y acabados profesionales.
+        </p>
+      </div>
+
+      <!-- Navegación -->
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">Navegación</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="trabajos.html">Trabajos</a></li>
+          <li><a href="como-trabajamos.html">Cómo trabajamos</a></li>
+          <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        </ul>
+      </div>
+
+      <!-- Contacto -->
+      <div class="col-6 col-lg-3">
+        <h3 class="footer-title">Contacto</h3>
+        <ul class="footer-links">
+          <li>
+            <span>Tel.</span>
+            <a href="tel:+34123456789">+34 123 456 789</a>
+          </li>
+          <li>
+            <span>Email</span>
+            <a href="mailto:info@roosimprenta.com">info@roosimprenta.com</a>
+          </li>
+          <li>
+            <span>Dirección</span><br />
+            Calle Ejemplo 12, Madrid
+          </li>
+        </ul>
+      </div>
+
+      <!-- Redes -->
+      <div class="col-12 col-lg-3">
+        <h3 class="footer-title">Síguenos</h3>
+        <ul class="footer-links footer-social">
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
     </div>
-  </footer>
+
+    <hr class="footer-divider" />
+
+    <div class="row align-items-center footer-bottom">
+      <div class="col-12 col-md-6">
+        <p class="mb-0 footer-copy">
+          © <span id="footer-year"></span> ROOS Imprenta. Todos los derechos reservados.
+        </p>
+      </div>
+      <div class="col-12 col-md-6 text-md-end mt-2 mt-md-0">
+        <a href="#">Aviso legal</a>
+        <span class="footer-separator">·</span>
+        <a href="#">Política de privacidad</a>
+        <span class="footer-separator">·</span>
+        <a href="#">Política de cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>

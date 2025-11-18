@@ -115,44 +115,72 @@ a:hover {
   text-decoration: none;
 }
 
+/* BOTONES ROOS · EFECTO OFFSET */
+
 .btn-cta,
 .btn-secundario,
 .btn-presupuesto {
+  /* variables de color para el efecto */
+  --color: var(--color-accent);
+  --hover: #ff8b3a; /* un pelín más clara/caliente que el naranja base */
+
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.7rem 1.5rem;
+
+  padding: 0.7rem 1.8rem;
+  margin: 0;
   border-radius: 999px;
-  border: 1px solid var(--color-accent);
-  font-size: 0.9rem;
-  font-family: var(--font-heading);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: transform 0.18s ease, box-shadow 0.18s ease,
-    background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-  background: var(--color-accent);
-  color: #ffffff;
-}
-
-.btn-cta:hover,
-.btn-presupuesto:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 25px rgb(0, 0, 0);
-  background: #ffffff;
-  color: var(--color-accent);
-}
-
-.btn-secundario {
+  border: 2px solid var(--color-accent);
   background: transparent;
-  border-color: var(--color-text);
-  color: var(--color-text);
+
+  font-family: "PP Frama", system-ui, -apple-system, BlinkMacSystemFont,
+    "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  color: var(--color-accent);
+  cursor: pointer;
+
+  /* efecto offset base: sombra fuera + inset pequeña */
+  box-shadow:
+    0.3em 0.3em 0 0 var(--color),
+    inset 0.3em 0.3em 0 0 var(--color-accent);
+
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
-.btn-secundario:hover {
-  background: var(--color-surface);
+/* HOVER / FOCUS: rellenamos el botón desde dentro + quitamos el offset exterior */
+.btn-cta:hover,
+.btn-cta:focus,
+.btn-secundario:hover,
+.btn-secundario:focus,
+.btn-presupuesto:hover,
+.btn-presupuesto:focus {
+  box-shadow:
+    0 0 0 0 var(--hover),
+    inset 8em 3.5em 0 0 var(--color-accent); /* “relleno” animado */
+
   color: #ffffff;
+  border-color: var(--color-accent);
+  background: transparent; /* el color viene del inset */
+  transform: translate(-0.05em, -0.05em); /* micro movimiento hacia arriba */
+}
+
+/* por si algún botón se muestra como <button> nativo */
+button.btn-cta,
+button.btn-secundario,
+button.btn-presupuesto {
+  border-radius: 999px;
+  background: transparent;
 }
 
 /* HEADER / NAV */
@@ -495,6 +523,8 @@ nav a:hover::after {
   color: #ffeade;
 }
 
+
+
 /* FAQ */
 
 .faq-item {
@@ -526,23 +556,154 @@ nav a:hover::after {
   background: var(--color-accent-soft);
 }
 
-/* FOOTER */
+/* ===== FOOTER ROOS SIN REJILLA ===== */
 
-footer {
+.site-footer {
   margin-top: auto;
-  border-top: 1px solid var(--color-border-soft);
-  background: var(--color-bg);
-  font-size: 0.8rem;
-  color: var(--color-muted);
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  font-size: 0.85rem;
+  background: transparent; /* el degradado viene de .gradient-animated + JS */
 }
 
-footer p {
+/* para que el contenido esté por encima del degradado */
+.site-footer .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Logo */
+.footer-logo img {
+  height: 40px;
+  display: block;
+}
+
+/* Texto descriptivo */
+.footer-desc {
+  max-width: 320px;
+  margin: 0;
+  color: #ffeade;
+}
+
+/* Títulos de columnas */
+.footer-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.7rem;
+}
+
+/* Listas */
+.footer-links {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
-footer nav a {
+.footer-links li {
+  margin-bottom: 0.35rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.footer-links span {
+  font-weight: 500;
+  margin-right: 0.25rem;
+}
+
+/* Redes */
+.footer-social li {
+  margin-bottom: 0.3rem;
+}
+
+/* Separador suave */
+.footer-divider {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  margin: 2rem 0 1.5rem;
+}
+
+/* Parte inferior */
+.footer-bottom {
   font-size: 0.78rem;
 }
+
+.footer-copy {
+  color: #ffeade;
+}
+
+.footer-bottom a {
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.9;
+  margin-left: 0.4rem;
+}
+
+.footer-bottom a:first-child {
+  margin-left: 0;
+}
+
+.footer-bottom a:hover {
+  opacity: 1;
+}
+
+.footer-separator {
+  margin: 0 0.3rem;
+  opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-desc {
+    margin-bottom: 1rem;
+  }
+
+  .footer-bottom {
+    margin-top: 0.5rem;
+  }
+}
+
+
+/* Responsive: simplificamos rejilla en móvil para que no sea un “cajón fuerte” */
+@media (max-width: 768px) {
+  .footer-grid {
+    border-top: 3px solid rgba(255, 255, 255, 0.7);
+    border-bottom: none;
+  }
+
+  .footer-grid > [class*="col-"] {
+    border-right: none;
+    border-left: none;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.7);
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+  }
+
+  .footer-grid > [class*="col-"]:last-child {
+    border-bottom: none;
+  }
+
+  .footer-bottom {
+    border-left: 3px solid rgba(255, 255, 255, 0.7);
+    border-right: 3px solid rgba(255, 255, 255, 0.7);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.7);
+    margin-top: 0;
+  }
+}
+
+
+
 
 /* RESPONSIVE EXTRA */
 
@@ -554,4 +715,67 @@ footer nav a {
   nav ul {
     display: none; /* aquí si quieres luego montas un menú burger */
   }
+}
+
+
+/* Botones dentro del CTA naranja: blanco invertido */
+#cta-final .btn-cta,
+#cta-final .btn-secundario,
+#cta-final .btn-presupuesto {
+  --color: #ffffff;             /* borde y sombra blancos */
+  --hover: #ffffff;             /* relleno blanco en hover */
+  color: #ffffff;               /* texto blanco en estado normal */
+  border-color: #ffffff;
+  background: transparent;
+
+  box-shadow:
+    0.3em 0.3em 0 0 rgba(255, 255, 255, 0.7),
+    inset 0 0 0 0 rgba(255, 255, 255, 0.7);
+}
+
+/* Hover específico para el CTA: relleno blanco, texto naranja corporativo */
+#cta-final .btn-cta:hover,
+#cta-final .btn-cta:focus,
+#cta-final .btn-secundario:hover,
+#cta-final .btn-secundario:focus,
+#cta-final .btn-presupuesto:hover,
+#cta-final .btn-presupuesto:focus {
+  box-shadow:
+    0 0 0 0 rgba(255, 255, 255, 0.7),
+    inset 8em 3.5em 0 0 #ffffff;
+
+  background: #ffffff;
+  color: var(--color-accent);   /* texto naranja */
+  border-color: #ffffff;
+}
+/* Botones dentro del HERO con fondo naranja: versión invertida */
+
+#hero .btn-cta,
+#hero .btn-secundario,
+#hero .btn-presupuesto {
+  --color: #ffffff;             /* borde y sombra blancos */
+  --hover: #ffffff;             /* relleno blanco en hover */
+  color: #ffffff;
+  border-color: #ffffff;
+  background: transparent;
+
+  box-shadow:
+    0.3em 0.3em 0 0 rgba(255, 255, 255, 0.7),
+    inset 0 0 0 0 rgba(255, 255, 255, 0.7);
+}
+
+/* Hover en el hero: botón blanco, texto naranja corporativo */
+#hero .btn-cta:hover,
+#hero .btn-cta:focus,
+#hero .btn-secundario:hover,
+#hero .btn-secundario:focus,
+#hero .btn-presupuesto:hover,
+#hero .btn-presupuesto:focus {
+  box-shadow:
+    0 0 0 0 rgba(255, 255, 255, 0.7),
+    inset 8em 3.5em 0 0 #ffffff;
+
+  background: #ffffff;
+  color: var(--color-accent);   /* texto naranja */
+  border-color: #ffffff;
 }
