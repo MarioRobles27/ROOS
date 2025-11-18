@@ -1,27 +1,49 @@
 
-  document.addEventListener("DOMContentLoaded", function () {
+   document.addEventListener("DOMContentLoaded", function () {
     const header = document.querySelector("header");
-    if (!header) return;
+    const navToggle = document.querySelector(".nav-toggle");
 
-    const scrollThreshold = 80; // píxeles de scroll antes de encoger
+    /* === HEADER QUE SE ENCOGE AL HACER SCROLL === */
+    if (header) {
+      const scrollThreshold = 80; // píxeles de scroll antes de encoger
 
-    function onScroll() {
-      if (window.scrollY > scrollThreshold) {
-        if (!header.classList.contains("header--scrolled")) {
+      function onScroll() {
+        if (window.scrollY > scrollThreshold) {
           header.classList.add("header--scrolled");
-        }
-      } else {
-        if (header.classList.contains("header--scrolled")) {
+        } else {
           header.classList.remove("header--scrolled");
         }
       }
+
+      // Ejecutar una vez al cargar (por si recargas ya scrolleado)
+      onScroll();
+
+      // Escuchar el scroll
+      window.addEventListener("scroll", onScroll);
     }
 
-    // Ejecutar una vez al cargar (por si recargas ya scrolleado)
-    onScroll();
+    /* === MENÚ RESPONSIVE (HAMBURGUESA) === */
+    if (header && navToggle) {
+      // Abrir/cerrar al hacer clic en la hamburguesa
+      navToggle.addEventListener("click", function () {
+        header.classList.toggle("nav-open");
+      });
 
-    // Escuchar el scroll
-    window.addEventListener("scroll", onScroll);
+      // Cerrar menú al hacer clic en cualquier enlace del nav (en móvil)
+      const navLinks = header.querySelectorAll(".main-nav a");
+      navLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+          header.classList.remove("nav-open");
+        });
+      });
+
+      // Si se redimensiona a escritorio, aseguramos el menú cerrado
+      window.addEventListener("resize", function () {
+        if (window.innerWidth >= 992) {
+          header.classList.remove("nav-open");
+        }
+      });
+    }
   });
 
 

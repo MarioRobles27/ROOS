@@ -276,6 +276,143 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* ===== NAV RESPONSIVE ===== */
+
+/* Botón hamburguesa (oculto en escritorio) */
+/* ===== BOTÓN HAMBURGUESA ===== */
+
+.nav-toggle {
+  display: none;                 /* se activa solo en móvil */
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-soft);
+  background: #f6f3ef;
+  padding: 0;
+  margin-left: 0.75rem;
+  position: relative;            /* para posicionar las líneas */
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-toggle:hover {
+  box-shadow: 0 6px 18px rgba(255, 153, 0, 0.12);
+}
+
+/* Las tres líneas de la hamburguesa */
+.burger-line {
+  position: absolute;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--color-text);
+  transform: translateX(-50%);
+  transition:
+    transform 0.22s ease,
+    opacity 0.18s ease,
+    background 0.22s ease;
+}
+
+/* Posiciones de cada línea en estado normal */
+.burger-line.line1 {
+  top: 14px;   /* línea superior */
+}
+
+.burger-line.line2 {
+  top: 20px;   /* línea central */
+}
+
+.burger-line.line3 {
+  top: 26px;   /* línea inferior */
+}
+
+/* Estado cuando el menú está abierto: header.nav-open lo pone el JS */
+header.nav-open .nav-toggle {
+  background: var(--color-text);
+  border-color: var(--color-text);
+}
+
+header.nav-open .burger-line {
+  background: #ffffff;
+}
+
+/* Animación a "X" */
+header.nav-open .burger-line.line1 {
+  transform: translateX(-50%) translateY(6px) rotate(45deg);
+}
+
+header.nav-open .burger-line.line2 {
+  opacity: 0;
+}
+
+header.nav-open .burger-line.line3 {
+  transform: translateX(-50%) translateY(-6px) rotate(-45deg);
+}
+
+/* Mostrar hamburguesa en móvil/tablet */
+@media (max-width: 991.98px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+}
+
+
+
+/* ================== BREAKPOINT MÓVIL ================== */
+@media (max-width: 991.98px) {
+  /* mostrar hamburguesa en móvil */
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  /* ocultar botón de presupuesto en el header si quieres */
+  .btn-cta.d-none.d-lg-inline-flex {
+    display: none !important;
+  }
+
+  /* menú oculto por defecto */
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    background: rgba(246, 243, 239, 0.98);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--color-border-soft);
+
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .main-nav .nav-list {
+    flex-direction: column;
+    padding: 0.75rem 1.25rem 1rem;
+    gap: 0.25rem;
+  }
+
+  .main-nav .nav-list li a {
+    display: block;
+    padding: 0.35rem 0;
+  }
+
+  /* cuando el header tenga la clase nav-open, mostramos el menú */
+  header.nav-open .main-nav {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+
 /* HERO INDEX */
 
 #hero {
