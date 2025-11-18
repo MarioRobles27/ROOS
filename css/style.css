@@ -223,8 +223,8 @@ nav a:hover::after {
 /* HERO INDEX */
 
 #hero {
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
   border-bottom: 1px solid var(--color-border-soft);
 }
 
@@ -245,6 +245,60 @@ nav a:hover::after {
   max-width: 560px;
   font-size: 1rem;
 }
+
+/* HERO · FONDO DEGRADADO ANIMADO OCUPANDO TODA LA SECCIÓN */
+
+.hero-ambient {
+  position: relative;
+  overflow: hidden;
+  background: #120e0b;        /* base oscura cálida */
+  color: #ffffff;             /* texto en blanco dentro del hero */
+}
+
+/* aseguramos que el contenido esté por encima del fondo */
+.hero-ambient > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* degradados tipo "aurora" en movimiento */
+.hero-ambient::before {
+  content: "";
+  position: absolute;
+  inset: -20%; /* se sale un poco para que al moverse no se vea el corte */
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 107, 44, 0.75), transparent 60%),
+    radial-gradient(circle at 80% 30%, rgba(255, 197, 138, 0.55), transparent 60%),
+    radial-gradient(circle at 30% 80%, rgba(255, 155, 75, 0.65), transparent 60%),
+    radial-gradient(circle at 85% 85%, rgba(255, 107, 44, 0.4), transparent 60%);
+  filter: blur(30px);
+  opacity: 0.9;
+  animation: heroAuroraMove 22s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+/* colores de texto dentro del hero */
+.hero-ambient h1 {
+  color: #ffffff;
+}
+
+.hero-ambient p {
+  color: #f5e7dc; /* blanquecino cálido para el copy */
+}
+
+/* animación del "blob" de degradados */
+@keyframes heroAuroraMove {
+  0% {
+    transform: translate3d(-5%, 0, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(5%, -3%, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-3%, 3%, 0) scale(1.03);
+  }
+}
+
 
 /* TARJETAS SERVICIOS / TRABAJOS / EQUIPO */
 
