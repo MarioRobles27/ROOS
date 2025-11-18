@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <title>Servicios de impresión – ROOS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+  rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
   <header>
@@ -27,63 +27,64 @@
   </header>
 
   <main>
-    <!-- HERO SERVICIOS -->
-    <section class="hero-page">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-12 col-lg-8">
-            <h1>Servicios de impresión para tu negocio.</h1>
-            <p>
-              Combinamos impresión digital, offset y gran formato para adaptarnos a cada tipo de proyecto:
-              desde tarjetas urgentes hasta tiradas editoriales y cartelería de gran tamaño.
-            </p>
-            <div class="d-flex flex-wrap gap-2">
-              <a href="contacto.html" class="btn-cta">Pedir presupuesto</a>
-              <a href="como-trabajamos.html" class="btn-secundario">Ver proceso de trabajo</a>
-            </div>
+  <!-- HERO SERVICIOS -->
+  <section class="hero-page">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-lg-8">
+          <h1>Servicios de impresión para tu negocio</h1>
+          <p>
+            Combinamos impresión digital, offset y gran formato para adaptarnos a cada tipo de proyecto:
+            desde tarjetas urgentes hasta tiradas editoriales y cartelería de gran tamaño.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="contacto.html" class="btn-cta">Pedir presupuesto</a>
+            <a href="como-trabajamos.html" class="btn-secundario">Ver proceso de trabajo</a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- DIGITAL VS OFFSET -->
-    <section>
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-12 col-lg-6">
-            <h2>Impresión digital</h2>
-            <p>
-              Ideal para tiradas cortas, urgentes y personalizadas. Perfecta para pequeñas empresas,
-              restauración, eventos y cualquier proyecto que necesite estar listo rápido.
-            </p>
-            <ul>
-              <li>Tarjetas de visita y papelería corporativa.</li>
-              <li>Flyers, dípticos, trípticos y pequeñas campañas.</li>
-              <li>Carteles en formatos estándar.</li>
-              <li>Personalización por unidades (numeraciones, nombres, etc.).</li>
-            </ul>
-          </div>
-          <div class="col-12 col-lg-6">
-            <h2>Impresión offset</h2>
-            <p>
-              La mejor opción para tiradas medias y largas con un coste por unidad ajustado
-              y una gran estabilidad de color.
-            </p>
-            <ul>
-              <li>Catálogos, revistas y folletos de gran volumen.</li>
-              <li>Libros y publicaciones editoriales.</li>
-              <li>Grandes tiradas de papelería y material corporativo.</li>
-              <li>Campañas de buzoneo o distribución masiva.</li>
-            </ul>
-          </div>
+  <!-- BLOQUE 1 · DIGITAL VS OFFSET EN CAJA -->
+  <section class="servicios-grid-page">
+    <div class="container">
+      <article class="service-box service-box--grid">
+        <div class="service-box__col">
+          <h2>Impresión digital</h2>
+          <p>
+            Ideal para tiradas cortas, urgentes y personalizadas. Perfecta para pequeñas
+            empresas, restauración, eventos y cualquier proyecto que necesite estar listo rápido.
+          </p>
+          <ul>
+            <li>Tarjetas de visita y papelería corporativa.</li>
+            <li>Flyers, dípticos, trípticos y pequeñas campañas.</li>
+            <li>Carteles en formatos estándar.</li>
+            <li>Personalización por unidades (numeraciones, nombres, etc.).</li>
+          </ul>
         </div>
-      </div>
-    </section>
+        <div class="service-box__col">
+          <h2>Impresión offset</h2>
+          <p>
+            La mejor opción para tiradas medias y largas con un coste por unidad ajustado
+            y una gran estabilidad de color.
+          </p>
+          <ul>
+            <li>Catálogos, revistas y folletos de gran volumen.</li>
+            <li>Libros y publicaciones editoriales.</li>
+            <li>Grandes tiradas de papelería y material corporativo.</li>
+            <li>Campañas de buzoneo o distribución masiva.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
 
-    <!-- IMPRESIÓN DIGITAL DETALLE -->
-    <section id="impresion-digital">
-      <div class="container">
-        <div class="row g-4 align-items-start">
+  <!-- BLOQUE 2 · DETALLE IMPRESIÓN DIGITAL EN CAJA -->
+  <section class="servicios-grid-page" id="impresion-digital">
+    <div class="container">
+      <article class="service-box">
+        <div class="row g-4">
           <div class="col-12 col-lg-6">
             <h2>Impresión digital</h2>
             <p>
@@ -91,11 +92,11 @@
               Nos permite producir desde pocas unidades con un acabado profesional.
             </p>
             <p>
-              Es perfecta para negocios que renuevan a menudo su material y para lanzamientos que requieren
-              pruebas y cambios frecuentes.
+              Es perfecta para negocios que renuevan a menudo su material y para lanzamientos
+              que requieren pruebas y cambios frecuentes.
             </p>
           </div>
-          <div class="col-12 col-lg-5 offset-lg-1">
+          <div class="col-12 col-lg-6">
             <h3>Ideal para</h3>
             <ul>
               <li>Tarjetas de visita, invitaciones y vales regalo.</li>
@@ -108,27 +109,31 @@
               <li>Amplia gama de papeles y gramajes desde 120 g hasta 350 g.</li>
               <li>Opciones de plastificado, hendido y plegado.</li>
             </ul>
-            <a href="contacto.html" class="link-subrayado">Pedir presupuesto para impresión digital</a>
+            <a href="contacto.html" class="link-subrayado mt-2 d-inline-flex">
+              Pedir presupuesto para impresión digital
+            </a>
           </div>
         </div>
-      </div>
-    </section>
+      </article>
+    </div>
+  </section>
 
-    <!-- IMPRESIÓN OFFSET DETALLE -->
-    <section id="impresion-offset">
-      <div class="container">
-        <div class="row g-4 align-items-start">
+  <!-- BLOQUE 3 · DETALLE IMPRESIÓN OFFSET EN CAJA -->
+  <section class="servicios-grid-page" id="impresion-offset">
+    <div class="container">
+      <article class="service-box">
+        <div class="row g-4">
           <div class="col-12 col-lg-6">
             <h2>Impresión offset</h2>
             <p>
-              Para grandes volúmenes y proyectos que requieren una calidad de color muy estable. La impresión offset
-              es la opción más eficiente cuando necesitas muchas copias del mismo diseño.
+              Para grandes volúmenes y proyectos que requieren una calidad de color muy estable.
+              La impresión offset es la opción más eficiente cuando necesitas muchas copias del mismo diseño.
             </p>
             <p>
               Muy utilizada en proyectos editoriales, campañas de marketing y material corporativo continuo.
             </p>
           </div>
-          <div class="col-12 col-lg-5 offset-lg-1">
+          <div class="col-12 col-lg-6">
             <h3>Ideal para</h3>
             <ul>
               <li>Revistas, catálogos y folletos extensos.</li>
@@ -141,83 +146,16 @@
               <li>Perfecto para tiradas medias y largas.</li>
               <li>Acabados profesionales y variedad de encuadernaciones.</li>
             </ul>
-            <a href="contacto.html" class="link-subrayado">Pedir presupuesto para impresión offset</a>
+            <a href="contacto.html" class="link-subrayado mt-2 d-inline-flex">
+              Pedir presupuesto para impresión offset
+            </a>
           </div>
         </div>
-      </div>
-    </section>
+      </article>
+    </div>
+  </section>
+</main>
 
-    <!-- GRAN FORMATO -->
-    <section id="gran-formato">
-      <div class="container">
-        <div class="row g-4 align-items-start">
-          <div class="col-12 col-lg-6">
-            <h2>Gran formato</h2>
-            <p>
-              Para cuando necesitas que te vean de lejos: lonas, carteles, vinilos y otros soportes
-              pensados para exterior e interior.
-            </p>
-          </div>
-          <div class="col-12 col-lg-5 offset-lg-1">
-            <h3>Trabajamos en</h3>
-            <ul>
-              <li>Lonas para fachadas y eventos.</li>
-              <li>Carteles rígidos y foam.</li>
-              <li>Vinilos de corte y vinilos impresos.</li>
-              <li>Roll-ups y soportes portátiles.</li>
-            </ul>
-            <a href="contacto.html" class="link-subrayado">Pedir presupuesto de gran formato</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAPELERÍA -->
-    <section id="papeleria">
-      <div class="container">
-        <div class="row g-4 align-items-start">
-          <div class="col-12 col-lg-6">
-            <h2>Papelería corporativa</h2>
-            <p>
-              Todo lo que tu marca necesita para el día a día: desde tarjetas hasta carpetas
-              y hojas corporativas.
-            </p>
-          </div>
-          <div class="col-12 col-lg-5 offset-lg-1">
-            <ul>
-              <li>Tarjetas de visita.</li>
-              <li>Hojas de carta y sobres.</li>
-              <li>Carpetas con o sin solapas.</li>
-              <li>Bloc de notas y material interno.</li>
-            </ul>
-            <a href="contacto.html" class="link-subrayado">Pedir presupuesto de papelería</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ACABADOS -->
-    <section id="acabados">
-      <div class="container">
-        <div class="row g-4 align-items-start">
-          <div class="col-12 col-lg-6">
-            <h2>Acabados y encuadernación</h2>
-            <p>
-              Los detalles marcan la diferencia. Te asesoramos en el tipo de acabado que mejor encaja con tu proyecto.
-            </p>
-          </div>
-          <div class="col-12 col-lg-5 offset-lg-1">
-            <ul>
-              <li>Plastificados mate y brillo.</li>
-              <li>Hendidos, troquelados y perforados.</li>
-              <li>Encuadernación grapada, en rústica o wire-o.</li>
-            </ul>
-            <a href="contacto.html" class="link-subrayado">Hablar sobre acabados</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
 
   <footer class="py-3">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
