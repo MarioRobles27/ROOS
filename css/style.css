@@ -217,7 +217,7 @@ header {
 }
 
 .logo img {
-  height: 26px;                 /* tamaño normal del logo */
+  height: 32px;                 /* tamaño normal del logo */
   display: block;
   transition: height 0.25s ease, transform 0.25s ease;
 }
