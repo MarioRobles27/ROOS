@@ -1,0 +1,382 @@
+/* RESET SUAVE / BASE */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:root {
+  --color-bg: #f5f5f5;
+  --color-text: #111111;
+  --color-muted: #666666;
+  --color-card: #ffffff;
+  --color-border-soft: rgba(0, 0, 0, 0.06);
+  --color-border-strong: rgba(0, 0, 0, 0.2);
+  --color-accent: #ff4b4b; /* aquí luego pondríamos el color ROOS real */
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #111;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  padding: 4rem 0 5rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2.7rem, 5vw, 3.6rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.4vw, 2.2rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  font-size: 0.98rem;
+  color: #333;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+/* LINKS / BOTONES */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.btn-cta,
+.btn-secundario,
+.btn-presupuesto {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid #111;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  background: #111;
+  color: #f5f5f5;
+}
+
+.btn-cta:hover,
+.btn-presupuesto:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
+  background: #f5f5f5;
+  color: #111;
+}
+
+.btn-secundario {
+  background: transparent;
+  color: #111;
+}
+
+.btn-secundario:hover {
+  background: #111;
+  color: #f5f5f5;
+}
+
+/* HEADER / NAV */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(245, 245, 245, 0.9);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.header-inner {
+  padding: 1rem 0;
+}
+
+.logo {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.4rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding-bottom: 0.15rem;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 1px;
+  background: #111;
+  transition: width 0.2s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* HERO INDEX */
+#hero {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#hero p {
+  max-width: 520px;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+#hero .btn-cta {
+  margin-right: 0.75rem;
+}
+
+/* HERO GENERICO (RESTO PÁGINAS) */
+.hero-page {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hero-page p {
+  max-width: 560px;
+  font-size: 1rem;
+}
+
+/* TARJETAS SERVICIOS / TRABAJOS */
+.servicio-card,
+.trabajo-card {
+  background: #ffffff;
+  border-radius: 1.2rem;
+  padding: 1.3rem 1.35rem 1.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.servicio-card:hover,
+.trabajo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.servicio-card h3,
+.trabajo-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.servicio-card p,
+.trabajo-card p {
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.servicio-card a,
+.trabajo-card a {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: auto;
+  border-bottom: 1px solid transparent;
+  align-self: flex-start;
+}
+
+.servicio-card a:hover,
+.trabajo-card a:hover {
+  border-color: #111;
+}
+
+/* POR QUÉ NOSOTROS / LISTAS EN TARJETAS */
+#por-que-nosotros ul {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+#por-que-nosotros li {
+  font-size: 0.94rem;
+  padding: 0.7rem 0.8rem;
+  background: #ffffff;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* PROCESO PASOS */
+#proceso ol,
+.proceso-lista {
+  counter-reset: pasos;
+  margin: 1.2rem 0 0;
+  padding-left: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+#proceso li,
+.proceso-lista li {
+  list-style: none;
+  position: relative;
+  padding-left: 2.5rem;
+  font-size: 0.94rem;
+}
+
+#proceso li::before,
+.proceso-lista li::before {
+  counter-increment: pasos;
+  content: counter(pasos);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 999px;
+  border: 1px solid #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+/* CTA / ENLACES */
+#trabajos-recientes a.ver-mas,
+.link-subrayado {
+  display: inline-flex;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid #111;
+}
+
+/* CTA FINAL */
+#cta-final {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-radius: 1.5rem;
+  background: #111;
+  color: #f5f5f5;
+}
+
+#cta-final p {
+  max-width: 480px;
+  margin: 0.5rem auto 1.5rem;
+  color: #e5e5e5;
+}
+
+/* FAQ */
+.faq-item {
+  padding: 1.1rem 1.2rem;
+  border-radius: 1rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 1rem;
+}
+
+.faq-item h3 {
+  font-size: 0.98rem;
+  margin-bottom: 0.4rem;
+}
+
+/* TAGS / PILLS */
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* FOOTER */
+footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: #f5f5f5;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer nav a {
+  font-size: 0.78rem;
+}
+
+/* RESPONSIVE EXTRA */
+@media (max-width: 992px) {
+  #hero {
+    padding-top: 2.5rem;
+  }
+
+  nav ul {
+    display: none; /* aquí si quieres luego montas un burger */
+  }
+}
