@@ -121,96 +121,117 @@ a:hover {
    BOTONES · EFECTO OFFSET
    ========================================= */
 
+/* BOTONES BASE (normales) */
 .btn-cta,
 .btn-secundario,
 .btn-presupuesto {
-  --color: var(--color-accent);
-  --hover: #ff8b3a;
+  --btn-bg: var(--color-accent);
+  --btn-bg-hover: #ff8b3a;
+  --btn-text: #ffffff;
+  --btn-text-hover: #ffffff;
 
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.4rem;
 
-  padding: 0.7rem 1.8rem;
-  margin: 0;
+  padding: 0.75rem 2rem;
+  border: none;
   border-radius: 999px;
-  border: 2px solid var(--color);
+
+  background: var(--btn-bg);
+  color: var(--btn-text);
 
   font-family: var(--font-body);
   font-size: 0.9rem;
-  font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 
-  color: var(--color);
-  background: transparent;
   cursor: pointer;
-
-  box-shadow:
-    0.3em 0.3em 0 0 var(--color),
-    inset 0.3em 0.3em 0 0 var(--color);
-
+  overflow: hidden;              /* importante para el efecto pegajoso */
   transition:
-    box-shadow 0.25s ease,
-    transform 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    background 0.25s ease;
+    background 0.25s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    color 0.25s ease;
 }
 
+/* Pequeño “lift” al pasar por encima */
 .btn-cta:hover,
-.btn-cta:focus,
 .btn-secundario:hover,
-.btn-secundario:focus,
+.btn-presupuesto:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+   EFECTO PEGAJOSO (GOOEY)
+   =========================== */
+
+.btn-cta,
+.btn-secundario,
+.btn-presupuesto {
+  --x: 50%;
+  --y: 50%;
+}
+
+/* La gota que se expande */
+.btn-cta::before,
+.btn-secundario::before,
+.btn-presupuesto::before {
+  content: "";
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--btn-bg-hover);
+  transition:
+    width 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+    height 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: -1;
+}
+
+/* Cuando haces hover, la gota se hace gigante
+   y “se pega” al botón desde el punto de entrada */
+.btn-cta:hover::before,
+.btn-cta:focus-visible::before,
+.btn-secundario:hover::before,
+.btn-secundario:focus-visible::before,
+.btn-presupuesto:hover::before,
+.btn-presupuesto:focus-visible::before {
+  width: 260%;
+  height: 260%;
+}
+
+/* El texto por encima del blob */
+.btn-cta span,
+.btn-secundario span,
+.btn-presupuesto span {
+  position: relative;
+  z-index: 0;
+}
+
+/* Por si los usas sin <span>, esto asegura que el texto esté encima */
+.btn-cta,
+.btn-secundario,
+.btn-presupuesto {
+  z-index: 0;
+}
+
+/* Color del texto cuando el blob cubre todo */
+.btn-cta:hover,
+.btn-cta:focus-visible,
+.btn-secundario:hover,
+.btn-secundario:focus-visible,
 .btn-presupuesto:hover,
-.btn-presupuesto:focus {
-  box-shadow:
-    0 0 0 0 var(--hover),
-    inset 8em 3.5em 0 0 var(--hover);
-  color: #ffffff;
-  border-color: var(--hover);
-  background: transparent;
-  transform: translate(-0.05em, -0.05em);
+.btn-presupuesto:focus-visible {
+  color: var(--btn-text-hover);
 }
 
-/* por si algún botón es <button> nativo */
-button.btn-cta,
-button.btn-secundario,
-button.btn-presupuesto {
-  border-radius: 999px;
-  background: transparent;
-}
-
-/* CTA naranja (se invierte) */
-
-#cta-final .btn-cta,
-#cta-final .btn-secundario,
-#cta-final .btn-presupuesto {
-  --color: #ffffff;
-  --hover: #ffffff;
-  color: #ffffff;
-  border-color: #ffffff;
-  background: transparent;
-
-  box-shadow:
-    0.3em 0.3em 0 0 rgba(255, 255, 255, 0.7),
-    inset 0 0 0 0 rgba(255, 255, 255, 0.7);
-}
-
-#cta-final .btn-cta:hover,
-#cta-final .btn-cta:focus,
-#cta-final .btn-secundario:hover,
-#cta-final .btn-secundario:focus,
-#cta-final .btn-presupuesto:hover,
-#cta-final .btn-presupuesto:focus {
-  box-shadow:
-    0 0 0 0 rgba(255, 255, 255, 0.7),
-    inset 8em 3.5em 0 0 #ffffff;
-  background: #ffffff;
-  color: var(--color-accent);
-  border-color: #ffffff;
-}
 
 /* Hero (cuando el fondo es degradado intenso) */
 

@@ -110,3 +110,25 @@
   document.addEventListener("DOMContentLoaded", function () {
     requestAnimationFrame(updateGradient);
   });
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const gooButtons = document.querySelectorAll(
+    ".btn-cta, .btn-secundario, .btn-presupuesto"
+  );
+
+  gooButtons.forEach((btn) => {
+    btn.addEventListener("pointermove", (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      btn.style.setProperty("--x", `${x}px`);
+      btn.style.setProperty("--y", `${y}px`);
+    });
+  });
+});
+
+
+
+AOS.init();
