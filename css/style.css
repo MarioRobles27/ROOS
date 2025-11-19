@@ -391,10 +391,26 @@ header.nav-open .burger-line.line3 {
 
 /* Hero genérico resto páginas */
 
+/* Hero genérico, normal (para páginas interiores como Trabajos, Servicios, etc.) */
 .hero-page {
   padding: 4rem 0 3rem;
   border-bottom: 1px solid var(--color-border-soft);
 }
+
+/* Versión a pantalla completa SOLO cuando tú quieras (home, por ejemplo) */
+.hero-page--full {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Hero específico de la página de trabajos */
+.hero-page--trabajos {
+  min-height: 100vh;     /* ocupa toda la altura de la ventana */
+  /* display: flex;
+  align-items: center;    */
+}
+
 
 .hero-page p {
   max-width: 560px;
@@ -428,14 +444,19 @@ header.nav-open .burger-line.line3 {
 /* =========================================
    CARRUSEL HORIZONTAL · TRABAJOS RECIENTES
    ========================================= */
+#trabajos-carousel {
+  padding: 0;              /* sin padding vertical */
+}
 
-#trabajos-recientes .works-horizontal-wrapper {
+#trabajos-carousel .works-horizontal-wrapper {
   position: relative;
   width: 100%;
-  height: 70vh;
-  margin: 2.5rem 0 3rem;
+  height: 100vh;
+  margin-top: 0;           /* quitamos separaciones */
+  margin-bottom: 0;
   overflow: hidden;
 }
+
 
 #trabajos-recientes .works-horizontal {
   display: flex;
@@ -517,108 +538,66 @@ header.nav-open .burger-line.line3 {
    CARRUSEL HORIZONTAL · TRABAJOS
    ========================================= */
 
+/* =========================================
+   CARRUSEL HORIZONTAL · TRABAJOS
+   ========================================= */
+
 #trabajos-carousel {
   padding: 3rem 0;
+}
+
+/* Carrusel trabajos: full width, sin padding lateral */
+#trabajos-carousel .container {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 #trabajos-carousel .works-horizontal-wrapper {
   position: relative;
   width: 100%;
-  height: 100vh; /* ANTES 70vh */
+  height: 100vh;          /* altura del carrusel */
   margin-top: 1.5rem;
   margin-bottom: 3rem;
-  overflow: hidden;
+  overflow: hidden;       /* oculta lo que se sale horizontalmente */
 }
-
 
 #trabajos-carousel .works-horizontal {
   display: flex;
+  flex-wrap: nowrap;
   height: 100%;
   width: 100%;
+  gap: 0;                 /* SIN hueco entre paneles */
 }
 
+/* Cada slide ocupa todo el ancho de la ventana */
 #trabajos-carousel .work-panel {
   flex: 0 0 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-  height: 100%;      /* ocupa toda la altura del wrapper */
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-
-.work-panel-text h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.6rem;
-}
-
-.work-panel-text p {
-  font-size: 0.95rem;
-  max-width: 420px;
-}
-
-/* bloque para la imagen */
-.work-panel-media {
-  flex: 0 0 45%;      /* ancho de la columna de imagen */
-  max-width: 520px;   /* puedes subirlo/bajarlo */
-  height: 100%;       /* para aprovechar el alto del wrapper */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.work-panel-image {
+/* La imagen rellena el panel entero */
+#trabajos-carousel .work-panel-image {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* recorta para llenar el espacio */
-  border-radius: 1.2rem;
-  display: block;
+  object-fit: cover;      /* recorta la imagen para que no se deforme */
+  border-radius: 0;       /* sin esquinas redondeadas para que “se peguen” */
 }
 
-
-.work-panel-placeholder {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 1.2rem;
-  border: 1px dashed rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-muted);
-}
-
-/* un pelín de matiz por slide si quieres */
-.work-panel-1 .work-panel-placeholder {
-  background: #fff7f2;
-}
-.work-panel-2 .work-panel-placeholder {
-  background: #f3f7ff;
-}
-.work-panel-3 .work-panel-placeholder {
-  background: #f4fff5;
-}
+/* --- Si en algún momento vuelves a meter texto, 
+   podrías recuperar estilos de .work-panel-text, etc.
+   De momento los quitamos para que sea 100% visual. --- */
 
 /* Responsive */
 @media (max-width: 768px) {
   #trabajos-carousel .works-horizontal-wrapper {
-    height: 60vh;
-  }
-
-  #trabajos-carousel .work-panel {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .work-panel-media {
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: none;
+    height: 60vh;         /* un poco menos alto en móvil, ajusta a tu gusto */
   }
 }
+
 
 
 
@@ -628,20 +607,23 @@ header.nav-open .burger-line.line3 {
 
 .servicio-card,
 .trabajo-card {
-  background: var(--color-surface);
-  border-radius: 1.2rem;
-  padding: 1.3rem 1.35rem 1.4rem;
-  border: 1px solid var(--color-border-soft);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.03);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease,
-    border-color 0.18s ease,
-    background 0.18s ease;
+ background: #87878700;
+    border-radius: 1.2rem;
+    padding: 1.3rem 1.35rem 1.4rem;
+    border: 1px solid var(--color-border-soft);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: transform 0.18s 
+ease, box-shadow 0.18s 
+ease, border-color 0.18s 
+ease, background 0.18s 
+ease;
+    /* border-block-color: #ff6700; */
+    /* border: 1px; */
+    border: 1px solid var(--color-accent);
 }
 
 .servicio-card:hover,
@@ -649,13 +631,18 @@ header.nav-open .burger-line.line3 {
   transform: translateY(-3px);
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
   border-color: var(--color-border-strong);
-  background: #ffffff;
+  background: #ffffff00;
 }
 
 .servicio-card h3,
 .trabajo-card h3 {
   font-size: 1rem;
   margin-bottom: 0.4rem;
+}
+
+.servicio-card img,
+.trabajo-card img {
+  margin-bottom: 1rem;
 }
 
 .servicio-card p,
