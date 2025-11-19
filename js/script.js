@@ -61,7 +61,7 @@ function updateGradient() {
 }
 
 /* =========================================
-   INTERACCIÓN UI (HEADER, MENÚ, BOTONES)
+   INTERACCIÓN UI (HEADER, MENÚ, BOTONES, FADE HERO)
    ========================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (header) {
     const scrollThreshold = 80; // píxeles de scroll antes de encoger
 
-    function onScroll() {
+    function onScrollHeader() {
       if (window.scrollY > scrollThreshold) {
         header.classList.add("header--scrolled");
       } else {
@@ -81,10 +81,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Ejecutar una vez al cargar (por si recargas ya scrolleado)
-    onScroll();
+    onScrollHeader();
 
     // Escuchar el scroll
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScrollHeader, { passive: true });
   }
 
   /* === MENÚ RESPONSIVE (HAMBURGUESA) === */
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // movemos el botón
       btn.style.transform = `translate(${currentX}px, ${currentY}px)`;
 
-      // sombra que acompaña, ligera sensación de profundidad
+      // sombra que acompaña
       const shadowX = -currentX * 2;
       const shadowY = 16 - currentY;
       btn.style.boxShadow = `${shadowX}px ${shadowY}px 32px rgba(0,0,0,0.22)`;
@@ -178,10 +178,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  /* === FADE DEL DEGRADADO EN HERO TRABAJOS === */
+  const heroFade = document.querySelector(
+    ".hero-page--trabajos .hero-fade-overlay"
+  );
+
+  if (heroFade) {
+    const heroSection = heroFade.closest(".hero-page--trabajos");
+
+    function updateHeroFade() {
+      const rect = heroSection.getBoundingClientRect();
+      const heroHeight = rect.height || heroSection.offsetHeight;
+
+      // empezamos a desvanecer cuando se ha desplazado 0px
+      const start = 0;
+      // y termina de desaparecer aprox. al 60% del alto del hero (máx 400px)
+      const end = Math.min(heroHeight * 0.6, 400);
+
+      const offset = Math.min(Math.max(-rect.top, start), end); // clamp
+      const progress = offset / end; // 0 → 1
+      const opacity = 1 - progress;  // 1 → 0
+
+      heroFade.style.opacity = opacity.toFixed(3);
+    }
+
+    updateHeroFade();
+    window.addEventListener("scroll", updateHeroFade, { passive: true });
+    window.addEventListener("resize", updateHeroFade);
+  }
+
   /* === AOS (ANIMATIONS ON SCROLL), SI ESTÁ CARGADO === */
   if (window.AOS) {
     AOS.init();
   }
-
-  
 });
