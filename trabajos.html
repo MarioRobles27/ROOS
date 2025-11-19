@@ -9,40 +9,39 @@
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
- <header>
-  <div class="container">
-    <div class="header-inner d-flex align-items-center justify-content-between">
-      <!-- LOGO -->
-      <a href="index.html" class="logo d-inline-flex align-items-center">
-        <img src="img/LOGO_ROOS.svg" alt="ROOS IMPRENTA" />
-      </a>
+  <header>
+    <div class="container">
+      <div class="header-inner d-flex align-items-center justify-content-between">
+        <!-- LOGO -->
+        <a href="index.html" class="logo d-inline-flex align-items-center">
+          <img src="img/LOGO_ROOS.svg" alt="ROOS IMPRENTA" />
+        </a>
 
-      <!-- BOTÓN HAMBURGUESA -->
-      <button class="nav-toggle" aria-label="Abrir menú">
-        <span class="burger-line line1"></span>
-        <span class="burger-line line2"></span>
-        <span class="burger-line line3"></span>
-      </button>
+        <!-- BOTÓN HAMBURGUESA -->
+        <button class="nav-toggle" aria-label="Abrir menú">
+          <span class="burger-line line1"></span>
+          <span class="burger-line line2"></span>
+          <span class="burger-line line3"></span>
+        </button>
 
-      <!-- NAVEGACIÓN PRINCIPAL -->
-      <nav class="main-nav">
-        <ul class="nav-list d-flex align-items-center gap-4 mb-0">
-          <li><a href="index.html">INICIO</a></li>
-          <li><a href="servicios.html">SERVICIOS</a></li>
-          <li><a href="trabajos.html">TRABAJOS</a></li>
-          <li><a href="como-trabajamos.html">CÓMO TRABAJAMOS</a></li>
-          <li><a href="sobre-nosotros.html">SOBRE NOSOTROS</a></li>
-        </ul>
-      </nav>
-  
-      <!-- BOTÓN PRESUPUESTO -->
-      <a href="#contacto" class="btn-cta d-none d-lg-inline-flex">
-        PRESUPUESTO
-      </a>
+        <!-- NAVEGACIÓN PRINCIPAL -->
+        <nav class="main-nav">
+          <ul class="nav-list d-flex align-items-center gap-4 mb-0">
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="servicios.html">SERVICIOS</a></li>
+            <li><a href="trabajos.html">TRABAJOS</a></li>
+            <li><a href="como-trabajamos.html">CÓMO TRABAJAMOS</a></li>
+            <li><a href="sobre-nosotros.html">SOBRE NOSOTROS</a></li>
+          </ul>
+        </nav>
+    
+        <!-- BOTÓN PRESUPUESTO -->
+        <a href="#contacto" class="btn-cta d-none d-lg-inline-flex">
+          <span>PRESUPUESTO</span>
+        </a>
+      </div>
     </div>
-  </div>
-</header>
-
+  </header>
 
   <main>
     <!-- HERO -->
@@ -55,11 +54,80 @@
               Una muestra de proyectos realizados para restaurantes, tiendas, pequeñas marcas,
               diseñadores y editoriales.
             </p>
-            <a href="contacto.html" class="btn-cta">Quiero algo parecido</a>
+            <a href="contacto.html" class="btn-cta">
+              <span>Quiero algo parecido</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- CARRUSEL HORIZONTAL DE TRABAJOS -->
+    <section id="trabajos-carousel">
+      <div class="container">
+        <div class="works-horizontal-wrapper">
+          <div class="works-horizontal">
+            <!-- SLIDE 1 -->
+            <section class="work-panel work-panel-1">
+              <div class="work-panel-text">
+                <h3>Tarjetas Restaurante X</h3>
+                <p>
+                  Cartulina de 350 g con plastificado mate, impresión digital a dos caras.
+                  Perfectas para negocios de restauración que quieren cuidar el detalle.
+                </p>
+                <span class="tag-pill">Digital · Papelería</span>
+              </div>
+              <div class="work-panel-media">
+                <img
+                  src="img/pexels-wendelinjacober-1440504.jpg"
+                  alt="Tarjetas de visita para Restaurante X"
+                  class="work-panel-image"
+                />
+              </div>
+            </section>
+
+            <!-- SLIDE 2 -->
+            <section class="work-panel work-panel-2">
+              <div class="work-panel-text">
+                <h3>Catálogo Empresa Y</h3>
+                <p>
+                  Catálogo de producto en impresión offset, encuadernación en rústica
+                  y papel de alta calidad para presentar colecciones completas.
+                </p>
+                <span class="tag-pill">Offset · Editorial</span>
+              </div>
+              <div class="work-panel-media">
+                <img
+                  src="img/trabajo-catalogo-empresa-y.jpg"
+                  alt="Catálogo de producto para Empresa Y"
+                  class="work-panel-image"
+                />
+              </div>
+            </section>
+
+            <!-- SLIDE 3 -->
+            <section class="work-panel work-panel-3">
+              <div class="work-panel-text">
+                <h3>Lona Comercio Z</h3>
+                <p>
+                  Lona en gran formato para fachada, pensada para aguantar en exterior
+                  y dar visibilidad a la marca desde lejos.
+                </p>
+                <span class="tag-pill">Gran formato</span>
+              </div>
+              <div class="work-panel-media">
+                <img
+                  src="img/trabajo-lona-comercio-z.jpg"
+                  alt="Lona en fachada para Comercio Z"
+                  class="work-panel-image"
+                />
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FIN CARRUSEL -->
 
     <!-- GRID TRABAJOS -->
     <section>
@@ -128,84 +196,112 @@
   </main>
 
   <footer class="site-footer gradient-animated">
-  <div class="container py-4 py-lg-5">
-    <div class="row gy-4 align-items-start">
-      <!-- Logo + descripción -->
-      <div class="col-12 col-lg-4">
-        <a href="index.html" class="footer-logo d-inline-flex align-items-center mb-3">
-          <!-- Cambia la ruta del logo -->
-          <img src="img/LOGO_ROOS_BLANCO.svg" alt="ROOS imprenta" />
-        </a>
-        <p class="footer-desc">
-          Imprenta digital y offset para pequeñas y medianas empresas.
-          Asesoría cercana, plazos claros y acabados profesionales.
-        </p>
+    <div class="container py-4 py-lg-5">
+      <div class="row gy-4 align-items-start">
+        <!-- Logo + descripción -->
+        <div class="col-12 col-lg-4">
+          <a href="index.html" class="footer-logo d-inline-flex align-items-center mb-3">
+            <img src="img/LOGO_ROOS_BLANCO.svg" alt="ROOS imprenta" />
+          </a>
+          <p class="footer-desc">
+            Imprenta digital y offset para pequeñas y medianas empresas.
+            Asesoría cercana, plazos claros y acabados profesionales.
+          </p>
+        </div>
+
+        <!-- Navegación -->
+        <div class="col-6 col-lg-2">
+          <h3 class="footer-title">Navegación</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="trabajos.html">Trabajos</a></li>
+            <li><a href="como-trabajamos.html">Cómo trabajamos</a></li>
+            <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-title">Contacto</h3>
+          <ul class="footer-links">
+            <li>
+              <span>Tel.</span>
+              <a href="tel:+34123456789">+34 123 456 789</a>
+            </li>
+            <li>
+              <span>Email</span>
+              <a href="mailto:info@roosimprenta.com">info@roosimprenta.com</a>
+            </li>
+            <li>
+              <span>Dirección</span><br />
+              Calle Ejemplo 12, Madrid
+            </li>
+          </ul>
+        </div>
+
+        <!-- Redes -->
+        <div class="col-12 col-lg-3">
+          <h3 class="footer-title">Síguenos</h3>
+          <ul class="footer-links footer-social">
+            <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Navegación -->
-      <div class="col-6 col-lg-2">
-        <h3 class="footer-title">Navegación</h3>
-        <ul class="footer-links">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="servicios.html">Servicios</a></li>
-          <li><a href="trabajos.html">Trabajos</a></li>
-          <li><a href="como-trabajamos.html">Cómo trabajamos</a></li>
-          <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
-        </ul>
-      </div>
+      <hr class="footer-divider" />
 
-      <!-- Contacto -->
-      <div class="col-6 col-lg-3">
-        <h3 class="footer-title">Contacto</h3>
-        <ul class="footer-links">
-          <li>
-            <span>Tel.</span>
-            <a href="tel:+34123456789">+34 123 456 789</a>
-          </li>
-          <li>
-            <span>Email</span>
-            <a href="mailto:info@roosimprenta.com">info@roosimprenta.com</a>
-          </li>
-          <li>
-            <span>Dirección</span><br />
-            Calle Ejemplo 12, Madrid
-          </li>
-        </ul>
-      </div>
-
-      <!-- Redes -->
-      <div class="col-12 col-lg-3">
-        <h3 class="footer-title">Síguenos</h3>
-        <ul class="footer-links footer-social">
-          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
+      <div class="row align-items-center footer-bottom">
+        <div class="col-12 col-md-6">
+          <p class="mb-0 footer-copy">
+            © <span id="footer-year"></span> ROOS Imprenta. Todos los derechos reservados.
+          </p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end mt-2 mt-md-0">
+          <a href="#">Aviso legal</a>
+          <span class="footer-separator">·</span>
+          <a href="#">Política de privacidad</a>
+          <span class="footer-separator">·</span>
+          <a href="#">Política de cookies</a>
+        </div>
       </div>
     </div>
+  </footer>
 
-    <hr class="footer-divider" />
-
-    <div class="row align-items-center footer-bottom">
-      <div class="col-12 col-md-6">
-        <p class="mb-0 footer-copy">
-          © <span id="footer-year"></span> ROOS Imprenta. Todos los derechos reservados.
-        </p>
-      </div>
-      <div class="col-12 col-md-6 text-md-end mt-2 mt-md-0">
-        <a href="#">Aviso legal</a>
-        <span class="footer-separator">·</span>
-        <a href="#">Política de privacidad</a>
-        <span class="footer-separator">·</span>
-        <a href="#">Política de cookies</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
+  <!-- BOOTSTRAP JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
 
+  <!-- GSAP + SCROLLTRIGGER PARA EL CARRUSEL -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- INIT CARRUSEL HORIZONTAL SOLO EN ESTA PÁGINA -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (!(window.gsap && window.ScrollTrigger)) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const panels = gsap.utils.toArray("#trabajos-carousel .work-panel");
+      if (!panels.length) return;
+
+      gsap.to(panels, {
+        xPercent: -100 * (panels.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#trabajos-carousel .works-horizontal-wrapper",
+          pin: true,
+          scrub: 0.25,
+          end: "+=2500"
+          // markers: true, // descomenta si quieres ver los marcadores de debug
+        }
+      });
+    });
+  </script>
+
+  <!-- TU SCRIPT GENERAL -->
+  <script src="js/script.js"></script>
 </body>
 </html>

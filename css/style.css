@@ -117,151 +117,83 @@ a:hover {
   text-decoration: none;
 }
 
-/* =========================================
-   BOTONES · EFECTO OFFSET
-   ========================================= */
+/* ================================
+   BOTONES ROOS · COLORES PLANOS
+   ================================ */
 
-/* BOTONES BASE (normales) */
 .btn-cta,
 .btn-secundario,
 .btn-presupuesto {
-  --btn-bg: var(--color-accent);
-  --btn-bg-hover: #ff8b3a;
-  --btn-text: #ffffff;
-  --btn-text-hover: #ffffff;
-
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
 
-  padding: 0.75rem 2rem;
-  border: none;
+  padding: 0.85rem 2.4rem;
   border-radius: 999px;
+  border: none;
 
-  background: var(--btn-bg);
-  color: var(--btn-text);
+  background: var(--color-accent); /* naranja corporativo */
+  color: #ffffff;
 
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;  
   text-transform: uppercase;
+  letter-spacing: 0.08em;
 
   cursor: pointer;
-  overflow: hidden;              /* importante para el efecto pegajoso */
+  outline: none;
+
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+  transform: translate3d(0, 0, 0);
   transition:
-    background 0.25s ease,
-    transform 0.15s ease,
-    box-shadow 0.15s ease,
-    color 0.25s ease;
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
-/* Pequeño “lift” al pasar por encima */
-.btn-cta:hover,
-.btn-secundario:hover,
-.btn-presupuesto:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* ===========================
-   EFECTO PEGAJOSO (GOOEY)
-   =========================== */
-
-.btn-cta,
-.btn-secundario,
-.btn-presupuesto {
-  --x: 50%;
-  --y: 50%;
-}
-
-/* La gota que se expande */
-.btn-cta::before,
-.btn-secundario::before,
-.btn-presupuesto::before {
-  content: "";
-  position: absolute;
-  top: var(--y);
-  left: var(--x);
-  width: 0;
-  height: 0;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: var(--btn-bg-hover);
-  transition:
-    width 0.45s cubic-bezier(0.19, 1, 0.22, 1),
-    height 0.45s cubic-bezier(0.19, 1, 0.22, 1);
-  z-index: -1;
-}
-
-/* Cuando haces hover, la gota se hace gigante
-   y “se pega” al botón desde el punto de entrada */
-.btn-cta:hover::before,
-.btn-cta:focus-visible::before,
-.btn-secundario:hover::before,
-.btn-secundario:focus-visible::before,
-.btn-presupuesto:hover::before,
-.btn-presupuesto:focus-visible::before {
-  width: 260%;
-  height: 260%;
-}
-
-/* El texto por encima del blob */
+/* texto siempre por encima por si añades pseudo-elementos más adelante */
 .btn-cta span,
 .btn-secundario span,
 .btn-presupuesto span {
   position: relative;
-  z-index: 0;
+  z-index: 1;
 }
 
-/* Por si los usas sin <span>, esto asegura que el texto esté encima */
-.btn-cta,
-.btn-secundario,
-.btn-presupuesto {
-  z-index: 0;
-}
-
-/* Color del texto cuando el blob cubre todo */
+/* hover “normal” (para teclado o caso sin JS) */
 .btn-cta:hover,
-.btn-cta:focus-visible,
 .btn-secundario:hover,
-.btn-secundario:focus-visible,
 .btn-presupuesto:hover,
+.btn-cta:focus-visible,
+.btn-secundario:focus-visible,
 .btn-presupuesto:focus-visible {
-  color: var(--btn-text-hover);
+  background-color: #ffffff00; /* un pelín más clara */
+     border: 1px solid rgb(0, 0, 0);
+     color: #161616;
+}
+
+/* variante secundaria (por si quieres un botón claro) */
+.btn-secundario {
+ 
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.btn-secundario:hover,
+.btn-secundario:focus-visible {
+  background-color: #ffffff00; /* un pelín más clara */
+     border: 1px solid rgb(0, 0, 0);
+
+}
+
+/* accesibilidad focus */
+.btn-cta:focus-visible,
+.btn-secundario:focus-visible,
+.btn-presupuesto:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.3);
+  outline-offset: 3px;
 }
 
 
-/* Hero (cuando el fondo es degradado intenso) */
-
-#hero .btn-cta,
-#hero .btn-secundario,
-#hero .btn-presupuesto {
-  --color: #ffffff;
-  --hover: #ffffff;
-  color: #ffffff;
-  border-color: #ffffff;
-  background: transparent;
-
-  box-shadow:
-    0.3em 0.3em 0 0 rgba(255, 255, 255, 0.7),
-    inset 0 0 0 0 rgba(255, 255, 255, 0.7);
-}
-
-#hero .btn-cta:hover,
-#hero .btn-cta:focus,
-#hero .btn-secundario:hover,
-#hero .btn-secundario:focus,
-#hero .btn-presupuesto:hover,
-#hero .btn-presupuesto:focus {
-  box-shadow:
-    0 0 0 0 rgba(255, 255, 255, 0.7),
-    inset 8em 3.5em 0 0 #ffffff;
-  background: #ffffff;
-  color: var(--color-accent);
-  border-color: #ffffff;
-}
 
 /* =========================================
    HEADER / NAV
@@ -492,6 +424,203 @@ header.nav-open .burger-line.line3 {
 .hero-ambient p {
   color: #f5e7dc;
 }
+
+/* =========================================
+   CARRUSEL HORIZONTAL · TRABAJOS RECIENTES
+   ========================================= */
+
+#trabajos-recientes .works-horizontal-wrapper {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  margin: 2.5rem 0 3rem;
+  overflow: hidden;
+}
+
+#trabajos-recientes .works-horizontal {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+#trabajos-recientes .work-panel {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  padding: 2rem 0;
+}
+
+.work-panel-text h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.work-panel-text p {
+  font-size: 0.95rem;
+  max-width: 420px;
+}
+
+/* bloque para imagen/mockup */
+.work-panel-media {
+  flex: 0 0 40%;
+  max-width: 420px;
+}
+
+.work-panel-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.2rem;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+/* un pelín de estilo distinto por slide si quieres */
+.work-panel-1 .work-panel-placeholder {
+  background: #fff7f2;
+}
+.work-panel-2 .work-panel-placeholder {
+  background: #f3f7ff;
+}
+.work-panel-3 .work-panel-placeholder {
+  background: #f4fff5;
+}
+
+/* Responsive: que no se rompa en móvil */
+@media (max-width: 768px) {
+  #trabajos-recientes .works-horizontal-wrapper {
+    height: 60vh;
+  }
+
+  #trabajos-recientes .work-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .work-panel-media {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+
+/* =========================================
+   CARRUSEL HORIZONTAL · TRABAJOS
+   ========================================= */
+
+#trabajos-carousel {
+  padding: 3rem 0;
+}
+
+#trabajos-carousel .works-horizontal-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* ANTES 70vh */
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+
+#trabajos-carousel .works-horizontal {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+#trabajos-carousel .work-panel {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  height: 100%;      /* ocupa toda la altura del wrapper */
+}
+
+
+.work-panel-text h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.work-panel-text p {
+  font-size: 0.95rem;
+  max-width: 420px;
+}
+
+/* bloque para la imagen */
+.work-panel-media {
+  flex: 0 0 45%;      /* ancho de la columna de imagen */
+  max-width: 520px;   /* puedes subirlo/bajarlo */
+  height: 100%;       /* para aprovechar el alto del wrapper */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-panel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* recorta para llenar el espacio */
+  border-radius: 1.2rem;
+  display: block;
+}
+
+
+.work-panel-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.2rem;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+/* un pelín de matiz por slide si quieres */
+.work-panel-1 .work-panel-placeholder {
+  background: #fff7f2;
+}
+.work-panel-2 .work-panel-placeholder {
+  background: #f3f7ff;
+}
+.work-panel-3 .work-panel-placeholder {
+  background: #f4fff5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #trabajos-carousel .works-horizontal-wrapper {
+    height: 60vh;
+  }
+
+  #trabajos-carousel .work-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .work-panel-media {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+
 
 /* =========================================
    TARJETAS / CONTENIDO
